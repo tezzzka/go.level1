@@ -4,8 +4,20 @@ import "fmt"
 
 func main() {
 	arr := []int{5, 9, 0, 1, 2}
-	Quicksort(arr)
+	//Quicksort(arr)
+	InsSort(arr)
 	fmt.Println(arr)
+}
+
+func InsSort(arr []int) {
+	for i := 1; i < len(arr); i++ {
+		x := arr[i]
+		j := i
+		for ; j >= 1 && arr[j-1] > x; j-- {
+			arr[j] = arr[j-1]
+		}
+		arr[j] = x
+	}
 }
 
 func Quicksort(ar []int) {
