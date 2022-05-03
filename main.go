@@ -7,7 +7,24 @@ import (
 )
 
 func main() {
-	fiWrapper()
+	defer fmt.Println(box)
+
+	fmt.Print(fiRecursive(20))
+}
+
+func fiRecursive(N int) int {
+	if N < 0 {
+		return 0
+	}
+	if N < 2 {
+		return N
+	}
+	if box[N-1] > 0 && box[N-2] > 0 {
+		box[N] = box[N-1] + box[N-2]
+		return box[N]
+	} else {
+		return fiRecursive(N-1) + fiRecursive(N-2)
+	}
 }
 
 func fi(N uint64) uint64 {
